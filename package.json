@@ -1,0 +1,12 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "A simple bookstore website with a catalog, cart, mock checkout, and admin panel.",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm:dev --prefix server\" \"npm:dev --prefix client\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
