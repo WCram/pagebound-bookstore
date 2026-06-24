@@ -18,6 +18,12 @@ app.use("/api/books", booksRouter);
 app.use("/api/orders", ordersRouter);
 app.use("/api/loans", loansRouter);
 
+const clientDist = path.join(__dirname, "..", "client", "dist");
+app.use(express.static(clientDist));
+app.get(/^(?!\/api).*/, (req, res) => {
+  res.sendFile(path.join(clientDist, "index.html"));
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
